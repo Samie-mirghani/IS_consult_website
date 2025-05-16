@@ -1,0 +1,195 @@
+
+<link
+  rel="stylesheet"
+  href="https://use.fontawesome.com/releases/v6.5.0/css/all.css"
+  crossorigin="anonymous"
+/>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<section class="our-approach-section">
+  <div class="section-container">
+    <h2 class="section-title">The Insights & Solutions Consulting Way</h2>
+    <p class="section-description">
+      We partner with mission-driven organizations to help them design, implement,
+      and evaluate initiatives that advance democracy, human rights,
+      and inclusive development. Our approach is collaborative, grounded
+      in evidence, and tailored to local contexts.
+    </p>
+
+    <div class="approach-steps-grid">
+      
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fa-solid fa-search"></i>
+        </div>
+        <h3 class="service-title">Personalized Discovery & Goal Alignment</h3>
+        <p class="service-text">
+          We begin by deeply understanding your unique challenges and aspirations.
+          This involves active listening, in-depth discussions,
+          and a collaborative exploration of your vision to ensure alignment
+          from the outset.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fa-solid fa-clipboard-check"></i>
+        </div>
+        <h3 class="service-title">
+          Customized Strategic Analysis & Framework Development
+        </h3>
+        <p class="service-text">
+          We leverage our expertise to analyze your business, market,
+          and competition. This rigorous assessment informs the development
+          of bespoke strategies and frameworks that drive sustainable growth
+          and achieve your desired outcomes.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fa-solid fa-route"></i>
+        </div>
+        <h3 class="service-title">
+          Focused Implementation Guidance & Collaborative Execution
+        </h3>
+        <p class="service-text">
+          We provide dedicated support to ensure effective implementation.
+          We work collaboratively with your team, offering insights
+          and expertise to navigate challenges and translate strategy
+          into tangible, measurable results.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Styles from previous versions and "What We Do" page */
+.our-approach-section {
+  background-color: #f8f8f8;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.section-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #001F3F;
+  margin-bottom: 50px;
+}
+
+.section-description {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto 60px;
+}
+
+/* New grid layout for approach steps */
+.approach-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.approach-step-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center; /* Center content within the card */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-top: 4px solid #28a745;
+}
+
+.approach-step-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+.service-icon {
+  font-size: 3rem;
+  color: #28a745;
+  margin-bottom: 20px;
+}
+
+.approach-step-card .service-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #2B4570;
+  margin-bottom: 15px;
+}
+
+.approach-step-card .service-text {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* Animations (keeping existing) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.approach-step-card {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.approach-step-card:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.approach-step-card:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+/* Hover effects (keeping existing) */
+.approach-step-card:hover .service-icon {
+  /* You can add icon hover effects here if needed */
+}
+
+.approach-step-card:hover .service-title {
+  /* You can add title hover effects here if needed */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2.2rem;
+  }
+
+  .section-description {
+    font-size: 1.1rem;
+  }
+
+  .approach-steps-grid {
+    grid-template-columns: 1fr; /* Stack on smaller screens */
+  }
+
+  .approach-step-card {
+    text-align: left; /* Align text left on smaller screens */
+  }
+
+  .service-icon {
+    text-align: left; /* Align icon left on smaller screens */
+  }
+}
+</style>
