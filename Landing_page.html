@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+ <title>About Us - Insights & Solutions Consulting</title>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer"/>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+ <style>
+ body {
+ margin: 0;
+ font-family: 'Inter', sans-serif; /* Using the linked Inter font */
+ background-color: #f5f5f5;
+ color: #333;
+ line-height: 1.6;
+ }
+ .about-section {
+ padding: 60px 20px;
+ max-width: 1100px;
+ margin: 0 auto;
+ }
+ .top-about-section{
+ background-color: #001F3Fcc; /* Consistent dark blue */
+ padding: 60px 20px;
+ width: 100%;
+ margin: 0;
+ display: flex; /* Added for vertical alignment */
+ box-sizing: border-box;
+ flex-direction: column;
+ align-items: center;
+ text-align: center;
+ }
+ .section-title {
+ color: #001F3Fcc; /* Consistent dark blue */
+ font-size: 2.4rem;
+ font-weight: 700;
+ margin-bottom: 20px;
+ text-align: center;
+ opacity: 0;
+ transform: translateY(20px);
+ animation: fadeInUp 1s ease-out forwards;
+ transition: transform 0.2s ease, color 0.3s ease;
+ }
+ .top-about-section .section-title {
+      color: white;
+      font-size: 3.0rem; /* Larger */
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s ease-out forwards;
+      transition: transform 0.2s ease, color 0.3s ease;
+    }
+    .top-about-section .section-title i {
+      font-size: 2.9rem; /* Larger icon */
+      vertical-align: middle;
+      margin-right: 12px;
+    }
+    .section-title:hover {
+      transform: scale(1.05);
+      color: #6DBE45;
+    }
+ 
+ .about-statement {
+ font-size: 1.1rem;
+ color: #555;
+ margin-bottom: 30px;
+ line-height: 1.7;
+ opacity: 0;
+ transform: translateY(20px);
+ animation: fadeInUp 1s ease-out 0.3s forwards;
+ }
+ .top-about-section .about-statement{
+ color: white;
+ }
+ .work-with-us-button-container {
+ text-align: center;
+ margin-bottom: 50px;
+ opacity: 0;
+ animation: fadeInUp 1s ease-out 0.6s forwards;
+ }
+ .work-with-us-button {
+ width: 300px;
+ height: 50px;
+ box-sizing: border-box;
+ display: inline-block;
+ padding: 14px 24px;
+ background-color: #6DBE45; /* Consistent green */
+ color: #333333;
+ text-decoration: none;
+ border-radius: 5px;
+ font-weight: bold;
+ font-size: 1rem;
+ transition: background-color 0.3s ease, transform 0.3s ease;
+ cursor: pointer;
+ }
+ .work-with-us-button:hover {
+ background-color: #6DBE45;
+ color: #333333;
+ transform: scale(1.05);
+ }
+ .history-section, .team-section, .education-section, .mission-section, .partners-section {
+ padding: 80px 20px;
+ background-color: #fff;
+ border-radius: 8px;
+ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+ margin-bottom: 40px;
+ opacity: 0;
+ transform: translateY(20px);
+ animation: fadeInUp 1s ease-out 0.5s forwards;
+ width: 98%;
+ margin-left: auto;
+ margin-right: auto;
+ border: 1px solid #e0e0e0;
+ transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+ text-align: center; /* Center aligning the content within the section */
+ }
+ .history-section:hover, .team-section:hover, .education-section:hover, .mission-section:hover, .partners-section:hover{
+ box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+ transform: translateY(-5px);
+ border-color: #28A745;
+ border-width: 1.5px;
+ }
+ .history-section p, .team-section p, .mission-section p, .partners-section p {
+ font-size: 1rem;
+ color: #555;
+ line-height: 1.7;
+ text-align: center; /* text align for all paragraph text */
+ }
+ .team-member {
+ display: flex;
+ gap: 40px;
+ align-items: center;
+ padding: 20px 0;
+ text-align: left; /* Resetting text alignment for team members */
+ }
+
+
+ .headshot-container {
+ width: 160px;
+ height: 160px;
+ border-radius: 50%;
+ overflow: hidden;
+ flex-shrink: 0;
+ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+ opacity: 0; /* Added for fade-in */
+ animation: fadeInUp 1s ease-out 0.7s forwards; /* Added animation */
+ }
+ .headshot {
+ width: 100%;
+ height: 100%;
+ border-radius: 50%; /* Making the image circular */
+ }
+ .team-info h3 {
+ color: #2B4570;
+ font-size: 1.6rem;
+ margin-bottom: 5px;
+ }
+ .team-info h4 {
+ color: #666;
+ font-size: 1.1rem;
+ font-weight: normal;
+ margin-bottom: 15px;
+ }
+ .education-section ul {
+ list-style: none;
+ padding: 0;
+ }
+ .education-section li {
+ margin-bottom: 15px;
+ position: relative;
+ padding-left: 0; /* Removing left padding */
+ text-align: center; /* Centering list items */
+ }
+ .education-section li i {
+ position: relative; /* Adjusting icon positioning */
+ margin-right: 10px; /* Adding space between icon and text */
+ color: #2B4570;
+ top: auto; /* Resetting top positioning */
+ left: auto; /* Resetting left positioning */
+ }
+ .education-section li ul {
+ padding-left: 0; /* Ensuring nested list is also centered */
+ }
+ .education-section li ul li {
+ text-align: center; /* Centering nested list items */
+ }
+ /* Add this style to reduce spacing between Columbia University degrees */
+ .education-section li ul li:first-child {
+ margin-bottom: 3px; /* Reduced spacing, adjust as needed */
+ }
+
+ @keyframes fadeInUp {
+ from {
+ opacity: 0;
+ transform: translateY(20px);
+ }
+ to {
+ opacity: 1;
+ transform: translateY(0);
+ }
+ }
+ .section-divider {
+ height: 3px;
+ background-image: linear-gradient(to right, #2B4570, #6DBE45);
+ margin: 60px auto;
+ width: 80%;
+ border: none;
+ opacity: 0.7;
+ }
+ .history-section {
+ margin-top: 80px;
+ }
+
+ /* Mission Statement Styles */
+ .mission-section {
+ text-align: center;
+ }
+ .mission-section p {
+ font-size: 1.1rem;
+ color: #555;
+ line-height: 1.7
+ text-align: center;
+ padding: 0 20px;
+ }
+
+ /* Partners Section Styles */
+ .partners-section {
+ text-align: center;
+ }
+ .partners-text{
+ font-size: 1.1rem;
+ color: #555;
+ margin-bottom: 30px;
+ line-height: 1.7;
+ text-align: center;
+ }
+ .partner-logos {
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: center;
+ gap: 40px;
+ margin-top: 40px;
+ }
+ .partner-logo {
+ width: 150px;
+ height: 100px;
+ background-color: #f0f0f0;
+ border-radius: 8px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 1.2rem;
+ color: #888;
+ border: 1px solid #ddd;
+ transition: transform 0.3s ease;
+ }
+ .partner-logo:hover {
+ transform: scale(1.1);
+ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+ }
+ .education-section b {
+ color: #2B4570; /* Set the color to match the title */
+ }
+
+
+ </style>
+</head>
+<body>
+ <div class="top-about-section">
+ <h2 class="section-title"><i class="fas fa-info-circle"></i> About Us</h2>
+ <p class="about-statement">
+ <strong>Local Expertise. Global Impact. Tailored Solutions in International Development</strong><br>
+ Insights & Solutions Consulting is based in Arlington, Virginia (USA). We provide expert services in technical assessments, program design, strategic planning, qualitative research - including applied Political Economy Analysis (PEA) and Democracy, Human Rights & Governance (DRG) assessments. We support clients with governance system strengthening across sectors, proposal development, facilitation, and more. Our mission is to strengthen local insights and enable sustainable, locally-driven solutions.<br><br>
+ Led by founder Lisa McGregor, who brings 30+ years of global experience in countries like Senegal, Uganda, Nigeria, Kenya, Bangladesh, and Colombia, our consulting firm partners with a network of experts to deliver custom strategies rooted in deep contextual understanding. Lisa’s background includes leadership roles with USAID, RTI International, CARE International, IRC, and the UNDP.<br><br>
+ Contact Us via email or the form below to schedule a consultation and learn how we can support your organization with tailored, high-impact solutions.
+ </p>
+ <div class="work-with-us-button-container">
+ <a href="contact-us" class="work-with-us-button">Work With Us</a>
+ </div>
+ </div>
+ <div class="about-section">
+ <section class="history-section">
+ <h2 class="section-title"><i class="fas fa-history"></i> Our History</h2>
+ <p>
+ Launched in 2024, Insights & Solutions Consulting leverages the extensive experience of its founder and managing director, Lisa McGregor. With 30+ years of experience working with USAID, RTI International, CARE International, the International Rescue Committee and the United Nations Development Program, Lisa has served in longer-term positions in six countries and provided short term support in more than 20 countries and communities. Her expertise includes team leadership, technical assessments, applied political economy analysis, integrated governance across sectors, local organizational capacity development, strategic planning and meeting facilitation, and other technical approaches.
+ </p>
+ <p>
+ At Insights & Solutions Consulting, we are committed to sustainable development. Our approach combines local insights with practical yet innovative solutions for communities and individuals while ensuring our clients achieve their development goals. Our deep experience and dedication to excellence make us a trusted partner in the international development field.
+ </p>
+ </section>
+
+ <hr class="section-divider">
+ <section class="team-section">
+ <h2 class="section-title"><i class="fas fa-users"></i> Meet the Team</h2>
+ <div class="team-member">
+ <div class="headshot-container">
+ <img src="https://www.is-consult.net/s/lisa_mcgregor_510.jpg" 
+     alt="Lisa McGregor" 
+     style="max-width:300px; width:100%; height:auto; display:block; margin:0 auto; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+
+ </div>
+ <div class="team-info">
+ <h3>Lisa McGregor</h3>
+ <h4>Founder and Managing Director</h4>
+ <p>
+ Lisa McGregor is the Founder and Managing Director of Insights & Solutions Consulting where she leverages her extensive expertise in international development, integrated governance across sectors, applied political economy analysis (PEA), strategic planning and meeting facilitation, and related technical assessments. Lisa has supported technical teams to enhance outcomes in governance; gender equity and social inclusion; natural resource management; agriculture; water, sanitation, and hygiene (WASH); health systems; public financial management and other areas.
+ </p>
+ <p>
+ Her career includes long-term technical and team management roles in Sudan, Bangladesh, Thailand, Bangladesh, Haiti, and East Africa/Kenya and short-term assistance in 20+ countries with USAID, RTI International, CARE International, the International Rescue Committee, and the United Nations Development Program. She is a native English speaker with proficiency in spoken and written French and basic spoken Arabic. (She also spoke proficient Bangla and Thai while working in Bangladesh and Thailand.)
+ </p>
+ </div>
+ </div>
+ </section>
+ <hr class="section-divider">
+ <section class="education-section">
+ <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education & Credentials</h2>
+ <ul>
+ <li><i class="fas fa-university"></i> <b style="color: #2B4570;">Columbia University</b>
+ <ul>
+ <li><i>Master’s of Arts, International Affairs</i></li>
+ <li><i>Master’s of Science, Urban and Regional Planning</i></li>
+ </ul>
+ </li>
+ <li><i class="fas fa-university"></i> <b style="color: #2B4570;">University of Minnesota</b>
+ <ul>
+ <li><i>Bachelor or Arts, International Relations</i></li>
+ </ul>
+ </li>
+ <li><i class="fas fa-certificate"></i> <b style="color: #2B4570;">Arizona State University</b>
+ <ul>
+ <li><i>Program Evaluation & Non-Profit Management (Graduate level)</i></li>
+ </ul>
+ </li>
+ </ul>
+ </section>
+ <hr class="section-divider">
+ <section class="mission-section">
+ <h2 class="section-title"><i class="fas fa-flag-checkered"></i> Mission Statement</h2>
+ <p>
+ Our mission is to facilitate local insights and solutions to challenges and opportunities in governance and across sectors in partnership with local experts and organizations.
+ </p>
+ </section>
+ <hr class="section-divider">
+ <section class="partners-section">
+ <h2 class="section-title"> Who We Work With</h2>
+ <p class="partners-text">Where Strategy Meets Trusted Partnership.</p>
+ <div class="partner-logos">
+ <div class="partner-logo">Partner 1</div>
+ <div class="partner-logo">Partner 2</div>
+ <div class="partner-logo">Partner 3</div>
+ <div class="partner-logo">Partner 4</div>
+ </div>
+ </section>
+ </div>
+</body>
+</html>
