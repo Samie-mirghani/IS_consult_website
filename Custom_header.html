@@ -1,0 +1,106 @@
+<header class="custom-header">
+  <div class="header-container">
+    <div class="logo">
+      <a href="/">Insights & Solutions Consulting</a>
+    </div>
+    
+    <link
+  rel="stylesheet"
+  href="https://use.fontawesome.com/releases/v6.5.0/css/all.css"
+  crossorigin="anonymous"
+	/>
+
+    <!-- Menu toggle button -->
+    <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
+
+    <!-- Navigation links -->
+    <nav class="nav-links">
+      <a href="/">Home</a>
+      <a href="/about-us">About Us</a>
+      <a href="/contact-us">Contact Us</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .custom-header {
+    background-color: #f4f4f4; /* Light grey background */
+    padding: 16px 20px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .logo a {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #2B4570; /* Dark blue text for logo */
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 24px;
+  }
+
+  .nav-links a {
+    color: #2B4570;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+  }
+
+  .nav-links a:hover {
+    text-decoration: underline;
+  }
+
+  .menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    color: #2B4570;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: block;
+    }
+
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      margin-top: 12px;
+    }
+
+    .nav-links.active {
+      display: flex;
+      background-color: #f4f4f4;
+      padding: 10px 0;
+      border-top: 1px solid #ccc;
+    }
+
+    .nav-links a {
+      padding: 8px 0;
+    }
+  }
+</style>
+
+<script>
+  (function() {
+    const btn = document.querySelector('.custom-header .menu-toggle');
+    const nav = document.querySelector('.custom-header .nav-links');
+    btn.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+  })();
+</script>
