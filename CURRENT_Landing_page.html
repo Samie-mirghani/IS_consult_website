@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IS-Consult | Sustainable Global Development Solutions</title>
+  <meta name="description" content="We empower communities worldwide through innovative development programs that create lasting economic and social impact.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ===== Base Styles ===== */
+    :root {
+      --navy: #001F3F;
+      --white: #FFFFFF;
+      --green: #2ECC71;
+      --light-green: #d1fae5;
+      --light-navy: rgba(0, 31, 63, 0.9);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      overflow-x: hidden;
+      color: var(--white);
+      line-height: 1.5;
+    }
+    
+    /* ===== Hero Section ===== */
+    .hero {
+      position: relative;
+      min-height: 85vh;
+      min-height: 85dvh;
+      display: flex;
+      align-items: center;
+      background: 
+        linear-gradient(135deg, var(--navy) 0%, var(--light-navy) 100%),
+        url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1470&auto=format&fit=crop') center/cover no-repeat;
+      padding: 1rem;
+      overflow: hidden;
+    }
+    
+    @media (min-width: 768px) {
+      .hero {
+        min-height: 90vh;
+        min-height: 90dvh;
+      }
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 31, 63, 0.9) 0%,
+        rgba(0, 31, 63, 0.7) 100%
+      );
+      z-index: 1;
+    }
+    
+    /* ===== Content Container ===== */
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      padding: 0.5rem 1rem;
+    }
+    
+    @media (min-width: 1024px) {
+      .hero-content {
+        flex-direction: row;
+        align-items: center;
+        gap: 4rem;
+        padding: 1rem 2rem;
+      }
+    }
+    
+    /* ===== Text Content ===== */
+    .text-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      text-align: center;
+      order: 1;
+      width: 100%;
+      align-items: center;
+    }
+    
+    @media (min-width: 1024px) {
+      .text-content {
+        text-align: left;
+        align-items: flex-start;
+        flex: 1;
+        order: 0;
+        gap: 1.5rem;
+      }
+    }
+    
+    /* Tagline */
+    .tagline {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--green);
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0;
+      width: 100%;
+      justify-content: center;
+    }
+    
+    @media (min-width: 1024px) {
+      .tagline {
+        justify-content: flex-start;
+      }
+    }
+    
+    .tagline-line {
+      display: inline-block;
+      height: 2px;
+      width: 1.5rem;
+      background-color: var(--green);
+    }
+    
+    /* Main Heading */
+    .title {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin: 0;
+      color: var(--white);
+      text-align: center;
+      max-width: 90%;
+    }
+    
+    @media (min-width: 1024px) {
+      .title {
+        text-align: left;
+        max-width: 100%;
+        margin-top: 0.5rem;
+      }
+    }
+    
+    .title-gradient {
+      background: linear-gradient(to right, var(--green), var(--light-green));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: inline;
+    }
+    
+    /* Description */
+    .description {
+      font-size: clamp(1.125rem, 2vw, 1.25rem);
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.6;
+      max-width: 42rem;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    @media (min-width: 1024px) {
+      .description {
+        margin: 0;
+        text-align: left;
+      }
+    }
+    
+    /* ===== Buttons ===== */
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      width: 100%;
+      max-width: 28rem;
+      margin: 0 auto;
+      padding-top: 0.5rem;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    @media (min-width: 480px) {
+      .buttons {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .buttons {
+        justify-content: flex-start;
+        margin: 0;
+      }
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 1rem 2rem;
+      border-radius: 9999px;
+      text-decoration: none;
+      transition: var(--transition);
+      width: 100%;
+      max-width: 240px;
+      cursor: pointer;
+      border: none;
+    }
+    
+    @media (min-width: 480px) {
+      .btn {
+        width: auto;
+        padding: 1rem 1.75rem;
+      }
+    }
+    
+    @media (min-width: 768px) {
+      .btn {
+        padding: 1.125rem 2.25rem;
+        font-size: 1.125rem;
+      }
+    }
+    
+    .btn-primary {
+      background-color: var(--green);
+      color: var(--navy);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .btn-primary:hover, .btn-primary:focus {
+      background-color: #25a25a;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+      outline: 2px solid var(--white);
+    }
+    
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255, 255, 255, 0.7);
+    }
+    
+    .btn-secondary:hover, .btn-secondary:focus {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-color: var(--white);
+      transform: translateY(-2px);
+      outline: none;
+    }
+    
+    .btn-icon {
+      width: 20px;
+      height: 20px;
+    }
+    
+    /* ===== Stats ===== */
+    .stats {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      padding: 1rem 0 0;
+      align-items: center;
+    }
+    
+    @media (min-width: 480px) {
+      .stats {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .stats {
+        justify-content: flex-start;
+      }
+    }
+    
+    .stat {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .stat svg {
+      flex-shrink: 0;
+    }
+    
+    .avatars {
+      display: flex;
+    }
+    
+    .avatar {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      border: 2px solid var(--navy);
+      background-color: var(--green);
+    }
+    
+    .avatar + .avatar {
+      margin-left: -0.5rem;
+    }
+    
+    /* ===== Globe Animation ===== */
+    .globe-container {
+      display: none;
+      position: relative;
+      width: 100%;
+      max-width: 28rem;
+      aspect-ratio: 1/1;
+      margin: 0 auto;
+      order: 0;
+    }
+    
+    @media (min-width: 1024px) {
+      .globe-container {
+        display: block;
+        flex: 1;
+        order: 1;
+      }
+    }
+    
+    .globe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+      background-color: rgba(0, 31, 63, 0.2);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    .globe-gradient {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: radial-gradient(circle at center, transparent 30%, var(--light-green) 100%);
+    }
+    
+    /* Enhanced IS Logo Animation */
+    .logo-circle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60%;
+      height: 60%;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .logo-pulse {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-color: var(--green);
+      filter: blur(12px);
+      opacity: 0.3;
+      animation: pulse 3s ease-in-out infinite;
+    }
+    
+    .logo-text {
+      position: relative;
+      font-size: clamp(2.5rem, 8vw, 3.5rem);
+      font-weight: 700;
+      color: var(--white);
+      z-index: 1;
+    }
+    
+    .logo-text span:first-child {
+      color: var(--green);
+      display: inline-block;
+      animation: bounceI 3s ease infinite;
+    }
+    
+    .logo-text span:last-child {
+      display: inline-block;
+      animation: bounceS 3s ease infinite 0.15s;
+    }
+    
+    /* Connection Lines */
+    .connection-lines {
+      position: absolute;
+      inset: 0;
+    }
+    
+    .line {
+      position: absolute;
+      background: linear-gradient(to right, transparent, var(--green, 0.3), transparent);
+      height: 1px;
+      width: 100%;
+      opacity: 0.3;
+    }
+    
+    .line-1 {
+      top: 20%;
+      left: 50%;
+      width: 50%;
+      animation: pulseLine 4s ease infinite;
+    }
+    
+    .line-2 {
+      top: 40%;
+      left: 30%;
+      width: 40%;
+      animation: pulseLine 4s ease infinite 0.5s;
+    }
+    
+    .line-3 {
+      top: 60%;
+      left: 60%;
+      width: 30%;
+      animation: pulseLine 4s ease infinite 1s;
+    }
+    
+    /* ===== Scroll Indicator ===== */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      opacity: 0;
+      animation: fadeIn 0.8s ease-out 1.5s forwards;
+      text-decoration: none;
+      color: var(--green);
+      z-index: 10;
+    }
+    
+    .scroll-text {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+    
+    .scroll-icon {
+      width: 24px;
+      height: 24px;
+      animation: bounce 2s ease infinite;
+    }
+    
+    /* ===== Animations ===== */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes scaleIn {
+      from { transform: scaleX(0); }
+      to { transform: scaleX(1); }
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+      50% { transform: translate(-50%, -50%) translateY(-15px); }
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.3; }
+      50% { transform: scale(1.2); opacity: 0.6; }
+    }
+    
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-10px); }
+      60% { transform: translateY(-5px); }
+    }
+    
+    @keyframes bounceI {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    @keyframes bounceS {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
+    }
+    
+    @keyframes pulseLine {
+      0%, 100% { transform: scaleX(0.8); opacity: 0.2; }
+      50% { transform: scaleX(1.2); opacity: 0.5; }
+    }
+    
+    /* ===== Accessibility Improvements ===== */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+    
+    :focus-visible {
+      outline: 2px solid var(--green);
+      outline-offset: 2px;
+    }
+    
+    /* ===== Performance Optimizations ===== */
+    .hero::before {
+      will-change: opacity;
+    }
+    
+    .globe, .logo-pulse, .line {
+      will-change: transform, opacity;
+    }
+  </style>
+</head>
+<body>
+  <section class="hero" aria-labelledby="main-heading">
+    <div class="hero-content">
+      <!-- Text Content -->
+      <div class="text-content">
+        <div class="tagline">
+          <span class="tagline-line" aria-hidden="true"></span>
+          <span>GLOBAL DEVELOPMENT PARTNERS</span>
+        </div>
+        
+        <h1 id="main-heading" class="title">
+          <span class="title-gradient">Sustainable</span> Solutions for a 
+          <span>Better</span> Tomorrow
+        </h1>
+        
+        <p class="description">
+          We empower communities worldwide through innovative development programs that create lasting economic and social impact.
+        </p>
+        
+        <div class="buttons">
+          <a href="https://www.is-consult.net/contact-us" class="btn btn-primary" aria-label="Work with us (opens contact form)">
+            <span>Work With Us</span>
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+          
+          <a href="https://www.is-consult.net/services" class="btn btn-secondary" aria-label="Explore our services">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+            <span>Our Services</span>
+          </a>
+        </div>
+        
+        <div class="stats">
+          <div class="stat">
+            <div class="avatars" aria-hidden="true">
+              <div class="avatar"></div>
+              <div class="avatar"></div>
+              <div class="avatar"></div>
+            </div>
+            <span>100+ Global Partners</span>
+          </div>
+          
+          <div class="stat">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+              <path d="M2 12h20"/>
+            </svg>
+            <span>120 Countries</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Globe Animation -->
+      <div class="globe-container">
+        <div class="globe">
+          <div class="globe-gradient"></div>
+          <div class="connection-lines">
+            <div class="line line-1"></div>
+            <div class="line line-2"></div>
+            <div class="line line-3"></div>
+          </div>
+          <div class="logo-circle">
+            <div class="logo-pulse"></div>
+            <div class="logo-text">
+              <span>I</span><span>S</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Scroll Indicator -->
+    <a class="scroll-indicator" aria-label="Explore More">
+      <span class="scroll-text">Explore More</span>
+      <svg class="scroll-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 5v14M19 12l-7 7-7-7"/>
+      </svg>
+    </a>
+  </section>
+</body>
+</html>
