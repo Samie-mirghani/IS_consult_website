@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insights & Solutions Consulting</title>
+  <style>
+    :root {
+      --navy: #001F3F;
+      --white: #FFFFFF;
+      --green: #2ECC71;
+      --light-green: #d1fae5;
+      --light-navy: rgba(0, 31, 63, 0.9);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    body {
+      background-color: var(--white);
+      color: var(--navy);
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    /* Interactive Grid */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .info-card {
+      background: var(--white);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.5s ease-out forwards;
+    }
+    
+    .info-card:nth-child(1) { animation-delay: 0.1s; }
+    .info-card:nth-child(2) { animation-delay: 0.2s; }
+    .info-card:nth-child(3) { animation-delay: 0.3s; }
+    .info-card:nth-child(4) { animation-delay: 0.4s; }
+    .info-card:nth-child(5) { animation-delay: 0.5s; }
+    .info-card:nth-child(6) { animation-delay: 0.6s; }
+    
+    .info-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .card-title svg {
+      color: var(--green);
+    }
+    
+    /* Accordion Section */
+    .accordion-section {
+      margin-bottom: 2rem;
+    }
+    
+    .accordion {
+      background: var(--white);
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.5s ease-out forwards;
+    }
+    
+    .accordion-header {
+      padding: 1rem 1.5rem;
+      background: var(--navy);
+      color: var(--white);
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: var(--transition);
+    }
+    
+    .accordion-header:hover {
+      background: #001a35;
+    }
+    
+    .accordion-content {
+      padding: 0 1.5rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+    
+    .accordion-content-inner {
+      padding: 1.5rem 0;
+    }
+    
+    /* About Section */
+    .about-section {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    @media (min-width: 768px) {
+      .about-section {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    
+    .about-card {
+      background: var(--white);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.5s ease-out forwards;
+    }
+    
+    .about-card:nth-child(1) { animation-delay: 0.2s; }
+    .about-card:nth-child(2) { animation-delay: 0.4s; }
+    
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .profile-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: var(--light-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--navy);
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+    
+    .profile-info h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.25rem;
+    }
+    
+    .profile-info p {
+      color: #666;
+      font-size: 0.875rem;
+    }
+    
+    .experience-badge {
+      display: inline-block;
+      background-color: var(--green);
+      color: var(--navy);
+      padding: 0.25rem 0.5rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-top: 0.5rem;
+    }
+    
+    /* Contact Card */
+    .contact-card {
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.5s ease-out 0.6s forwards;
+    }
+    
+    .contact-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--green);
+    }
+    
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    
+    .contact-item svg {
+      color: var(--green);
+    }
+    
+    /* Section Headings */
+    .section-heading {
+      font-size: 1.75rem;
+      color: var(--navy);
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.5s ease-out forwards;
+    }
+    
+    .section-heading::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--green);
+    }
+    
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+      }
+      
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .about-section {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- What We Do Grid -->
+    <h2 class="section-heading">What We Do</h2>
+    <div class="info-grid">
+      <div class="info-card">
+        <h3 class="card-title">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7l8 3z"></path>
+          </svg>
+          Strategy & Advisory
+        </h3>
+        <p>We help organizations navigate complexity through data-informed strategy, contextual analysis, and tailored support across the project lifecycle.</p>
+      </div>
+      
+      <div class="info-card">
+        <h3 class="card-title">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+          </svg>
+          Monitoring & Evaluation
+        </h3>
+        <p>Our MEL services strengthen accountability and learning. We design practical, participatory systems for measuring outcomes and impact.</p>
+      </div>
+      
+      <div class="info-card">
+        <h3 class="card-title">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+          Capacity Strengthening
+        </h3>
+        <p>We work side-by-side with local actors to build sustainable capacity in program design, adaptive management, and evidence use.</p>
+      </div>
+      
+      <div class="info-card">
+        <h3 class="card-title">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+          </svg>
+          Applied Research
+        </h3>
+        <p>From political economy analysis to surveys and case studies, our research generates actionable insights for policy and practice.</p>
+      </div>
+      
+      <div class="info-card">
+        <h3 class="card-title">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+          Facilitation & Co-Creation
+        </h3>
+        <p>We design and lead inclusive workshops and co-creation sessions that align stakeholders, spark innovation, and build shared ownership.</p>
+      </div>
+      
+      <div class="info-card">
+        <h3 class="card-title">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+          </svg>
+          Organizational Learning
+        </h3>
+        <p>We support teams to reflect, learn, and adapt through after-action reviews, learning agendas, and evidence-to-practice initiatives.</p>
+      </div>
+    </div>
+    
+    <!-- Our Approach Accordion -->
+    <h2 class="section-heading">The Insights & Solutions Consulting Way</h2>
+    <div class="accordion-section">
+      <div class="accordion">
+        <div class="accordion-header">
+          <span>Personalized Discovery & Goal Alignment</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <p>We begin by deeply understanding your unique challenges and aspirations. This involves active listening, in-depth discussions, and a collaborative exploration of your vision to ensure alignment from the outset.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="accordion">
+        <div class="accordion-header">
+          <span>Customized Strategic Analysis</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <p>We leverage our expertise to analyze your business, market, and competition. This rigorous assessment informs the development of bespoke strategies and frameworks that drive sustainable growth and achieve your desired outcomes.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="accordion">
+        <div class="accordion-header">
+          <span>Focused Implementation Guidance</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <p>We provide dedicated support to ensure effective implementation. We work collaboratively with your team, offering insights and expertise to navigate challenges and translate strategy into tangible, measurable results.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="accordion">
+        <div class="accordion-header">
+          <span>Human-Centered Innovation</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <p>We facilitate workshops and strategy labs that empower your team to co-create context-aware solutions. Grounded in participatory methods and systems thinking, our sessions help unlock insights, surface blind spots, and accelerate impact.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- About Section -->
+    <h2 class="section-heading">About Us</h2>
+    <div class="about-section">
+      <div class="about-card">
+        <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--navy);">Local Expertise. Global Impact.</h3>
+        <p>Insights & Solutions Consulting is based in Arlington, Virginia (USA). We provide expert services in technical assessments, program design, strategic planning, qualitative research including applied Political Economy Analysis (PEA) and Democracy, Human Rights & Governance (DRG) assessments.</p>
+        <p style="margin-top: 1rem;">Our mission is to strengthen local insights and enable sustainable, locally-driven solutions.</p>
+      </div>
+      
+      <div class="about-card">
+        <div class="profile">
+          <div class="profile-img">LM</div>
+          <div class="profile-info">
+            <h3>Lisa McGregor</h3>
+            <p>Founder & Principal Consultant</p>
+            <span class="experience-badge">30+ Years Experience</span>
+          </div>
+        </div>
+        <p>With extensive global experience in countries like Senegal, Uganda, Nigeria, Kenya, Bangladesh, and Colombia, Lisa has held leadership roles with USAID, RTI International, CARE International, IRC, and the UNDP.</p>
+      </div>
+    </div>
+    
+    <!-- Contact Card -->
+    <div class="contact-card">
+      <h2 class="contact-title">Ready to Get Started?</h2>
+      <div class="contact-info">
+        <div class="contact-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <span>Arlington, VA 22204</span>
+        </div>
+        <div class="contact-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          <span>lmcgregor@is-consult.net</span>
+        </div>
+        <div class="contact-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          <span>+1 571-234-9410</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Accordion functionality
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const accordion = header.parentElement;
+        const content = header.nextElementSibling;
+        
+        // Close all other accordions
+        document.querySelectorAll('.accordion').forEach(item => {
+          if (item !== accordion) {
+            item.querySelector('.accordion-content').style.maxHeight = null;
+          }
+        });
+        
+        // Toggle current accordion
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + 'px';
+        }
+      });
+    });
+    
+    // Open first accordion by default
+    document.querySelector('.accordion .accordion-content').style.maxHeight = 
+      document.querySelector('.accordion .accordion-content').scrollHeight + 'px';
+  </script>
+</body>
+</html>
